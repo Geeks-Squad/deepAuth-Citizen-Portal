@@ -4,6 +4,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
+
     li1=['RAMA','1']
     li2=['Name','id']
     return render_template('index.html',li=li1)
