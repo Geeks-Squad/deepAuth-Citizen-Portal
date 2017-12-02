@@ -45,27 +45,22 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <link href="../static/bootstrap/css/bootstrap-slider.css" rel="stylesheet" type="text/css">
-<style>
-    a{
-        text-decoration: none;
-    }
-</style>
 </head>
-<body  id="main" style="color: black;background-color: whitesmoke;"  class="img-responsive success">
+<body  id="main" style="color: black;background-color: white;"  class="img-responsive success">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-   <a href="/">Dashboard</a>
-  <a href="/">Apply</a>
+  <a href="/">Dashboard</a>
   <a href="/pending">Pending Applications</a>
-  <a href="/approvedClient">Approved Applications</a>
-  <a href="/totalClient">Total Applicattions </a>
+  <a href="/approved">Approved Applications</a>
+  <a href="/total">Total Applicattions </a>
+  <a href="/statistics">Statistics </a>
   <a href="#">About</a>
   <a href="#">Contact</a>
 </div>
 
 <div>
 <div onclick="openNav()"><i class="fa fa-bars" style="font-size: 25px;color: #4E342E;margin-left: 5%;"></i>
-    &nbsp;&nbsp;&nbsp;&nbsp;<a href="/"><img src="../static/Dist/img/logo.png" height="50px" width="50px"/></a>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="/"> <img src="../static/Dist/img/logo.png" height="50px" width="50px"/></a>
 </div>
     <div id="main" onclick="closeNav()">
         <div class="page-header" style="margin:-6.5% 0 0 5%;" >
@@ -73,8 +68,8 @@
                   <div class="container">
                       <h2 style="margin-top: -2%;color: #222;">&nbsp;<b>Deep Auth - Client</b>
                           </h2>
-                      <u><a class=" pull-right" data-toggle="modal" style="font-size: 20px;" data-target="#myModal1"><i>{{ li[0] }}</i></a></u>
-                      <h6 class="pull-right" style="margin-top:5%;color:#222;">Dashboard (User) > Statistics</h6>
+                      <u><a class=" pull-right" data-toggle="modal" style="font-size: 20px;" data-target="#myModal"><i>{{ li[0] }}</i></a></u>
+                      <h6 class="pull-right" style="margin-top:5%;color:#222;"><a href="/" class="external-event"> Dashboard ({{ li[0] }}) </a>  > Total Applications</h6>
 
                       </p>
 
@@ -88,96 +83,144 @@
 </div>
     <div class="row" onclick="closeNav()">
         <div class="" style="margin:-5% 0 0 5%;" >
-            <h2 style="text-align: left;">{{ li[0] }}'s Dashboard(Citizen)</h2>
+            <h2 style="text-align: left;">All Applications</h2>
     </div>
         <br><br>
         <div class="row">
+             <div class="col-lg-7 col-sm-offset-0" style="margin:0 0 0 5%;">
+                <div class="box box-primary" style="">
+            <div class="box-header">
+              <h3 class="box-title">List</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped" style="text-align: center;">
+                <thead>
+                <tr>
+                  <th>View </th>
+                  <th>Applicant</th>
+                  <th>Email</th>
+                  <th>Aadhaar Number</th>
+                  <th>Address</th>
+                  <th>Deep Auth Status</th>
+                  <th>Your Status</th>
 
+                </tr>
+                </thead>
+                <tbody>
+                {% for i in li[1] %}
 
+                <tr>
+                    <td><a href="/view/{{ i[0] }}" ><i class="fa fa-eye"></i></a> </td>
+                    <td><b>{{ i[0] }}</b></td>
+                  <td>{{ i[2] }}
+                  </td>
+                  <td>{{ i[3] }}</td>
+                  <td>{{ i[1] }}</td>
+                {% if i[4]=='Approved' %}
+                  <td><span class="badge badge-success bg-success"><i class="fa fa-check"> <b>Approved</b> </i></span></td>
+                {% else %}
+                    <td><span class="badge badge-success bg-danger"><i class="fa fa-times"> <b>Rejected</b> </i></span></td>
+                {% endif %}
+                {% if i[5]=='Approved' %}
+                    <td><span class="badge badge-success bg-success"><i class="fa fa-check"> <b>Approved</b> </i></span></td>
+                {% else %}
+                    <td><span class="badge badge-success bg-danger"><i class="fa fa-times"> <b>Rejected</b> </i></span></td>
 
+                {% endif %}
+                </tr>
+                {% endfor %}
+                </tbody>
+                <tfoot>
+                <tr>
+                 <th>View </th>
+                    <th>Applicant</th>
+                  <th>Email</th>
+                  <th>Aadhaar Number</th>
+                  <th>Address</th>
+                  <th>Deep Auth Status</th>
+                  <th>Youth Status</th>
+
+                </tr>
+                </tfoot>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
         </div>
+        <!-- /.col -->
+
+      <!-- /.row -->
+    </section>
+    <!-- /.content -->
+      <div class="col-lg-4">
+        <div class="col-md-12">
+            <div class="info-box bg-green-active" style="" >
+            <span class="info-box-icon bg-success"><i class="fa fa-check" style="color:white;"></i></span>
+
+            <div class="info-box-content ">
+              <span class="info-box-text">Approved</span>
+              <span class="info-box-number">41</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+            <div class="col-md-12">
+          <div class="info-box bg-red-active" style="" >
+            <span class="info-box-icon bg-red"><i class="fa fa-times" style="color:white;"></i></span>
+
+            <div class="info-box-content ">
+              <span class="info-box-text">Rejected</span>
+              <span class="info-box-number">1</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+
+        <!-- /.col -->
     </div>
+    </div>
+             </div>
+        </div>
+         <br><br>
+         <br><br>
 
         <div class="row" style="margin:0 5% 0 5%;">
-              <div class="col-md-4">
-          <!-- Widget: user widget style 1 -->
-          <div class="card" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);"><br>
-  <i class="fa fa-plus" style="font-size: 80px;text-align:center;color:green;"></i>
-  <div class="card-body bg-gray">
-    <h4 class="card-title">Apply </h4>
-        <p class="card-text">Submit a proof to make your government procedures easier.</p>
-    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Document</a>
-  </div>
-</div>
-
-          <!-- /.widget-user -->
-          </div>
 
 
-
-              <div class="col-md-4">
-            <div class="card" ><br>
-  <i class="fa fa-file-text" style="font-size: 80px;text-align:center;color: crimson;"></i>
-  <div class="card-body bg-gray" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
-    <h4 class="card-title">My Documents</h4>
-    <p class="card-text">List of pending applications that you ave submitted.</p><br>
-    <a href="/pending/{{ li[1] }}" class="btn btn-primary">View</a>
-  </div>
-</div>
-          <!-- /.widget-user -->
         </div>
-            <div class="col-md-4" >
-            <div class="card"  style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);"><br>
-  <i class="fa fa-star" style="font-size: 80px;text-align:center;color: #222;margin-left: -30%;"></i>
-  <i class="fa fa-star-o" style="font-size: 80px;text-align:center;color: #222;margin:-21% 0 0 15%; "></i>
-  <div class="card-body bg-gray">
-    <h4 class="card-title">Ratings</h4>
-    <p class="card-text">Please give us your valuable feedback to improve our service.</p>
-    <a href="#" class="btn btn-primary">View</a>
-  </div>
 </div>
-          <!-- /.widget-user -->
-        </div>
-        </div>
 <div id="myModal" class="modal fade" role="dialog">
   <div class="modal-dialog ">
 
    <div class="col-md-12">
-       <div class="row">
-        <!-- left column -->
-        <div class="col-md-12">
-          <!-- general form elements -->
-          <div class="box box-warning">
-            <div class="box-header with-border">
-              <h3 class="box-title">Add Document!</h3>
-            </div>
-            <!-- /.box-header -->
-            <!-- form start -->
-            <form role="form" action="/user/{{ li[1] }}/upload" method="post">
-              <div class="box-body">
-                <div class="form-group">
-                  <label for="exampleInputEmail1">Pan Card</label>
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="panCard" name="panCard" required>
-                </div>
-                <div class="form-group">
-                  <label for="exampleInputPassword1">Driving License </label>
-                  <label for="exampleInputFile">File input</label>
-                  <input type="file" id="drivingLicense" name="drivingLicense" required>
-                </div>
-                <div class="checkbox">
-                  <label>
-                    <input type="checkbox" required> I am sure about this addition. *
-                  </label>
-                </div>
-              </div>
-              <!-- /.box-body -->
 
-              <div class="box-footer">
-                <button type="submit" class="btn btn-success">Submit</button>
-                <button type="reset" class="btn btn-danger">Reset</button>
-              </div>
-            </form>
+          <!-- Profile Image -->
+          <div class="box box-primary">
+            <div class="box-body box-profile">
+
+
+              <h3 class="profile-username text-center">User</h3>
+
+              <p class="text-muted text-center">Clerk</p>
+
+              <ul class="list-group list-group-unbordered">
+                <li class="list-group-item">
+                  <b>Department</b>
+                </li>
+                <li class="list-group-item">
+                  <b>Position</b>
+                </li>
+                <li class="list-group-item">
+                  <b>Info</b>
+                </li>
+              </ul>
+
+            </div>
+            <!-- /.box-body -->
           </div>
 
   </div>
@@ -198,6 +241,20 @@ function closeNav() {
     document.getElementById("mySidenav").style.width = "0";
 }
 </script>
+
+<script>
+  $(function () {
+
+    $('#example1').DataTable({
+      'paging'      : true,
+      'lengthChange': true,
+      'searching'   : true,
+      'ordering'    : true,
+      'info'        : true,
+      'autoWidth'   : true
+    });
+  })
+      </script>
 <script src="../static/build/dataTable/jqDT.min.js"></script>
 <script src="../static/build/dataTable/jsDT.min.js"></script>
 <script src="../static/Dist/sweetalert-master/dist/sweetalert-dev.js"></script>
