@@ -51,14 +51,14 @@
     }
 </style>
 </head>
-<body  id="main" style="color: black;background-color: white;"  class="img-responsive success">
+<body  id="main" style="color: black;background-color: whitesmoke;"  class="img-responsive success">
 <div id="mySidenav" class="sidenav">
   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
    <a href="/">Dashboard</a>
+  <a href="/">Apply</a>
   <a href="/pending">Pending Applications</a>
-  <a href="/approved">Approved Applications</a>
-  <a href="/total">Total Applicattions </a>
-  <a href="/statistics">Statistics </a>
+  <a href="/approvedClient">Approved Applications</a>
+  <a href="/totalClient">Total Applicattions </a>
   <a href="#">About</a>
   <a href="#">Contact</a>
 </div>
@@ -71,7 +71,7 @@
         <div class="page-header" style="margin:-6.5% 0 0 5%;" >
              <div class="jumbotron jumbotron-ad hidden-print" style="background-color:white;height:40px; margin: 0 0 0 -10%;width:120%;">
                   <div class="container">
-                      <h2 style="margin-top: -2%;color: #222;">&nbsp;<b>Deep Auth</b>
+                      <h2 style="margin-top: -2%;color: #222;">&nbsp;<b>Deep Auth - Client</b>
                           </h2>
                       <u><a class=" pull-right" data-toggle="modal" style="font-size: 20px;" data-target="#myModal"><i>{{ li[0] }}</i></a></u>
                       <h6 class="pull-right" style="margin-top:5%;color:#222;">Dashboard (User) > Statistics</h6>
@@ -88,7 +88,7 @@
 </div>
     <div class="row" onclick="closeNav()">
         <div class="" style="margin:-5% 0 0 5%;" >
-            <h2 style="text-align: left;">Pending Applications</h2>
+            <h2 style="text-align: left;">{{ li[0] }}'s Dashboard(Citizen)</h2>
     </div>
         <br><br>
         <div class="row">
@@ -101,16 +101,12 @@
         <div class="row" style="margin:0 5% 0 5%;">
               <div class="col-md-4">
           <!-- Widget: user widget style 1 -->
-          <div class="card" ><br>
-  <i class="fa fa-motorcycle" style="font-size: 80px;text-align:center;color: yellow"></i>
+          <div class="card" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);"><br>
+  <i class="fa fa-plus" style="font-size: 80px;text-align:center;color:royalblue;"></i>
   <div class="card-body bg-gray">
-    <h4 class="card-title">Road Transport Office</h4>
-    <p class="card-text"><ul class="list-group bg-gray">
-
-                    <li class="list-group-item bg-gray">Place : <b>Udaipur</b></li>
-                    <li class="list-group-item bg-gray">District : <b>Udaipur</b></li>
-</ul></p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h4 class="card-title">Apply </h4>
+        <p class="card-text">Submit a proof to make your government procedures easier.</p>
+    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModal">Add Document</a>
   </div>
 </div>
 
@@ -121,33 +117,33 @@
 
               <div class="col-md-4">
             <div class="card" ><br>
-  <i class="fa fa-plus" style="font-size: 80px;text-align:center;color: crimson;"></i>
+  <i class="fa fa-clock-o" style="font-size: 80px;text-align:center;color: crimson;"></i>
+  <div class="card-body bg-gray" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);">
+    <h4 class="card-title">Pending Applications</h4>
+    <p class="card-text">List of pending applications that you ave submitted.</p><br>
+    <a href="#" class="btn btn-primary">View</a>
+  </div>
+</div>
+          <!-- /.widget-user -->
+        </div>
+            <div class="col-md-4">
+            <div class="card" style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);" ><br>
+  <i class="fa fa-check-circle-o" style="font-size: 80px;text-align:center; color: green;"></i>
   <div class="card-body bg-gray">
-    <h4 class="card-title">Card title</h4>
+    <h4 class="card-title">Approved Applications</h4>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
           <!-- /.widget-user -->
         </div>
-            <div class="col-md-4">
-            <div class="card" ><br>
-  <i class="fa fa-plane" style="font-size: 80px;text-align:center; color: royalblue;"></i>
+            <div class="col-md-4" style="margin-top: 3%;">
+            <div class="card"  style="box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);"><br>
+  <i class="fa fa-motorcycle" style="font-size: 80px;text-align:center;color: saddlebrown;"></i>
   <div class="card-body bg-gray">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-          <!-- /.widget-user -->
-        </div>
-            <div class="col-md-4">
-            <div class="card" ><br>
-  <i class="fa fa-motorcycle" style="font-size: 80px;text-align:center;"></i>
-  <div class="card-body bg-gray">
-    <h4 class="card-title">Card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h4 class="card-title">All</h4>
+    <p class="card-text">THis tab hold all the submitted forms of the client.</p>
+    <a href="#" class="btn btn-primary">View</a>
   </div>
 </div>
           <!-- /.widget-user -->
@@ -157,30 +153,45 @@
   <div class="modal-dialog ">
 
    <div class="col-md-12">
-
-          <!-- Profile Image -->
-          <div class="box box-primary">
-            <div class="box-body box-profile">
-
-
-              <h3 class="profile-username text-center">{{ li[0] }}</h3>
-
-              <p class="text-muted text-center">Clerk</p>
-
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Department</b>
-                </li>
-                <li class="list-group-item">
-                  <b>Position</b>
-                </li>
-                <li class="list-group-item">
-                  <b>Info</b>
-                </li>
-              </ul>
-
+       <div class="row">
+        <!-- left column -->
+        <div class="col-md-12">
+          <!-- general form elements -->
+          <div class="box box-warning">
+            <div class="box-header with-border">
+              <h3 class="box-title">Add Document!</h3>
             </div>
-            <!-- /.box-body -->
+            <!-- /.box-header -->
+            <!-- form start -->
+            <form role="form">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Password</label>
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputFile">File input</label>
+                  <input type="file" id="exampleInputFile">
+
+                  <p class="help-block">Example block-level help text here.</p>
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> Check me out
+                  </label>
+                </div>
+              </div>
+              <!-- /.box-body -->
+
+              <div class="box-footer">
+                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="reset" class="btn btn-danger">Reset</button>
+              </div>
+            </form>
           </div>
 
   </div>
